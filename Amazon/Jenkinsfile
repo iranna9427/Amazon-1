@@ -1,1 +1,15 @@
-
+pipeline {
+  agent any
+  stages {
+    stage ('build') {
+      step {
+        echo "building the project"
+      }
+    }
+    post{
+      success{
+      emailext body: 'Email sent from Iranna jenkins account', subject: 'Build report from Iranna', to: 'javabatch.2022@gmail.com'
+      }
+    }
+  }
+}
