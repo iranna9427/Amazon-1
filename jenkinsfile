@@ -1,0 +1,14 @@
+pipeline {
+agent any
+stages {
+stage ('build'){
+steps {
+echo "buliding the project"
+}
+}
+post {
+success {
+emailext body: 'A demo email notification project from Iranna', subject: 'A demo email notification project from Iranna', to: 'javabatch.2022@gmail.com'
+}
+}
+}
